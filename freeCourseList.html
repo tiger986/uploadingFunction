@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>上传</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="create.css">
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+<body>
+<div class="body">
+    <div style="margin-bottom: 80px;">
+        <div class="content">
+            <div class="content_right_newcourse" ms-controller="createCourse">
+                <div class="content_right_newcourse_create">
+                	<div class="content_right_newcourse_top">
+                		<p class="content_right_newcourse_top_num"></p>
+                		<p class="content_right_newcourse_top_text">上传</p>
+                	</div>
+                    <div style="width: 801px; height: 34px;margin:35px auto 0">
+                        <span class="urlTitle">URL :</span>
+                        <input class="url" type="text" ms-duplex="url" />
+                    </div>
+                    <div class="content_right_newcourse_create_con">
+                        <div class="content_right_newcourse_create_con_list" ms-repeat-outer="postInfo.prelearnInfo">
+                            <div class="courseopen">
+                                <div class="content_right_newcourse_create_con_node_li" ms-repeat-inner="outer.nodeInfo">
+                                    <div class="content_right_newcourse_create_con_node_li_sort_box" ms-mouseenter = "sortShow()" ms-mouseleave = "sortHide()">
+                                        <div class="content_right_newcourse_create_con_node_li_sort">
+                                            <p class="content_right_newcourse_create_con_node_li_sort_up" ms-click = "sectionUp(outer.nodeInfo.$model, $index, $outer.$index)"></p>
+                                            <p class="content_right_newcourse_create_con_node_li_sort_down" ms-click = "sectionDown(outer.nodeInfo.$model, $index, $outer.$index)"></p>
+                                        </div>
+                                    </div>
+                                    <div class="content_right_newcourse_create_con_li">
+                                        <div class="content_right_newcourse_create_con_li_num" ms-html="$index>8?$index+1:'0'+($index+1)">01</div>
+                                        <div class="content_right_newcourse_create_con_li_tit"><input type="text" ms-duplex="inner.title" placeholder="请添加小节名称（18字内）" maxlength="18"></div>
+                                        <div class="content_right_newcourse_create_con_li_btncon">
+                                            <div class="content_right_newcourse_create_con_li_btncon_btn upload" ms-attr-type="1" ms-attr-chapter="$outer.$index" ms-attr-node="$index" ms-slectfile title = "上传您的本地课件资源"></div>
+                                            <div class="content_right_newcourse_create_con_li_btncon_btn del" ms-click="delchapter(1,inner,outer,$outer.$index,$index)"></div>
+                                        </div>
+                                        <div style="clear: both"></div>
+                                        <div>
+                                            <input class="fileresource" name="fileresource" type="file" class="files" multiple style="display: none">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="content_right_newcourse_create_con_li_li_con" style="height: 46px;" ms-repeat-el="inner.dataInfo">
+                                            <div class="content_right_newcourse_create_con_li_tit" style="border: none; width: 558px;height: 46px;padding-left: 60px;">
+                                                <div class="content_right_newcourse_create_con_li_tit_li_name_con">
+                                                    <div class="content_right_newcourse_create_con_li_tit_li_name_con_name" ms-html="el.title">一去二三里.doc</div>
+                                                    <div class="content_right_newcourse_create_con_li_tit_li_name_con_status" ms-if=el.fileID><img
+                                                                src="image/newok.png" alt=""></div>
+                                                </div>
+                                                <div class="content_right_newcourse_create_con_li_li_con_jdbarcon" ms-if="el.showjdbar">
+                                                    <div class="content_right_newcourse_create_con_li_li_con_jdbarcon_bar_a">
+                                                        <div class="content_right_newcourse_create_con_li_li_con_jdbarcon_bar_b" ms-css-width="[--el.progressBara--]%">
+                                                            <div class="content_right_newcourse_create_con_li_li_con_jdbarcon_bar_c" ms-css-width="[--el.progressBarb--]%">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="content_right_newcourse_create_con_li_li_con_jdnum hide" style="text-indent:10px" ms-class="hide:el.jdmsg">读取中..
+                                                    </div>
+                                                    <div class="content_right_newcourse_create_con_li_li_con_jdnum hide" ms-class="hide:!el.jdmsg" ms-html="el.progressBarb+'%'">
+                                                        75%
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="content_right_newcourse_create_con_li_btncon_btn del" style="height: 26px;" ms-click="dostopupload(el,$outer.$outer.$index,$outer.$index,$index)"></div>
+                                            <div style="clear: both"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="content_right_newcourse_create_con_node_li_addbtn" style="border:none">
+                                <div class="content_right_newcourse_create_con_node_li_addbtn_l" ms-click="addchapter(2, $index)">添加小节</div>
+                            </div>
+                            <div style="height: 40px;clear: both;"></div>
+                        </div>
+                        <input type="text" value="" class="md5container" id="md5container" style="display: none">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+<script>
+    require(['create'], function (modelb) {
+        avalon.directive("slectfile", {
+            init: function (binding) {
+                var elem = binding.element;
+                avalon(elem).bind("click", function () {
+                    var type = $(this).attr('type');
+                    var chapterIndex = $(this).attr('chapter');  //当前章索引
+                    var nodeIndex = $(this).attr('node');        //当前节索引
+                    var file;                                    //文件对象
+                    $(this).parent().next().html('<input class="fileresource" name="fileresource" type="file" class="files" multiple style="display: none">');
+                    var inputf = $(this).parent().next().find('.fileresource');   //input 选择文件框
+                    inputf.bind('change', function (e) {
+                        file = inputf[0].files;    //获取文件对象
+                        //清空文件域
+                        inputf.after(inputf.clone().val(""));
+                        inputf.remove();
+                        var filelength = file.length;
+                        if (type == 1) var typearr = modelb.postInfo.prelearnInfo[chapterIndex].nodeInfo[nodeIndex].dataInfo;
+                        var perarrlength = typearr.length;
+                        if (filelength + perarrlength > 1) {
+                            alert('资料数不可超过1个');
+                            return false
+                        }
+                        for (var i = 0; i < filelength; i++) {//格式验证
+                            var suffix = file[i].name.substring(file[i].name.lastIndexOf('.') + 1);
+                            if (!suffix.match(/(xls|xlsx|doc|docx|ppt|pdf|png|jpg|jpeg|mp3|wma|wav|mov|mp4|flv|avi|rmvb|wmv|mkv|swf)/i)) {
+                                alert('文件格式错误');
+                                return false
+                            }
+                            /*if (!modelb.countsize(file[i].name, file[i].size)) {
+                             alert(file[i].name + '文件大小超过1G');
+                             return false;
+                             }*/
+                        }
+//                        modelb.getDefaultPic(file, filelength);
+                        modelb.uploadziliao(file, filelength, chapterIndex, nodeIndex, typearr); //执行上传
+                    });
+
+                    inputf.click();
+                })
+            }
+        });
+
+        avalon.scan();
+    });
+</script>

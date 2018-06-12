@@ -1,0 +1,276 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.urlTitle{
+    float: left;
+    width: 50px;
+    height: 32px;
+    font-size: 16px;
+    line-height: 32px;
+    color: orange;
+}
+.url{
+    width: 576px;
+    height: 32px;
+    border: 1px solid orange;
+    font-size: 15px;
+    color: #333333;
+    line-height: 32px;
+    padding: 0 10px;
+    outline: none;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+.content_right_newcourse{
+    width:880px;
+    min-height:200px;
+    background: #FFFFFF;
+    margin: 0 auto;
+}
+.content_right_newcourse_top {
+    width: 840px;
+    height: 60px;
+    border-bottom: 1px solid #E5E5E5;
+}
+.content_right_newcourse_top_num{
+	width: 16px;
+	height: 16px;
+	float: left;
+	border: 1px solid gold;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	font-size: 14px;
+	color: #333333;
+	line-height: 16px;
+	text-align: center;
+	margin-top: 22px;
+    background-color: red;
+}
+.content_right_newcourse_top_text{
+	width: 300px;
+	height: 60px;
+	float: left;
+	font-size: 16px;
+	color: red;
+	line-height: 60px;
+	margin-left: 10px;
+}
+.content_right_newcourse_create_con {
+    width: 100%;
+    height: auto;
+}
+.content_right_newcourse_create_con_list {
+    width: 100%;
+    min-height: 500px;
+}
+.content_right_newcourse_create_con_node_li {
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    margin: 35px 0;
+}
+.content_right_newcourse_create_con_node_li_sort_box{
+	width: 32px;
+	height: 30px;
+	position: absolute;
+	top: 4px;
+	left: 30px;
+}
+.content_right_newcourse_create_con_node_li_sort{
+	width: 32px;
+	height: 30px;
+	background-color: #fff;
+	display: none;
+}
+.content_right_newcourse_create_con_node_li_sort_up{
+	width: 15px;
+	height: 30px;
+	float: left;
+	background-image: url(image/sort_up.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer;
+}
+.content_right_newcourse_create_con_node_li_sort_down{
+	width: 15px;
+	height: 30px;
+	float: right;
+	background-image: url(image/sort_down.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer;
+}
+.content_right_newcourse_create_con_li {
+    width: 100%;
+    height: 40px;
+}
+.content_right_newcourse_create_con_li_num {
+    height: 40px;
+    line-height: 40px;
+    float: left;
+    font-size: 14px;
+    color: #666666;
+    padding-left: 13px;
+    margin-left: 30px;
+}
+.content_right_newcourse_create_con_li_tit {
+    width: 600px;
+    height: 40px;
+    float: left; 
+    margin-left: 30px;   
+}
+.content_right_newcourse_create_con_li_tit input, .content_right_newcourse_create_con_li_tit_div {
+    width: 598px;
+    height: 38px;    
+    color: #666666;
+    text-indent: 10px;
+    font-size: 14px;
+    line-height: 38px;
+    font-family: 微软雅黑;
+    padding: 0;
+}
+.content_right_newcourse_create_con_li_tit input{
+	border: 1px solid #E5E5E5;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    background-color: #EEEEEE;
+}
+.content_right_newcourse_create_con_li_tit input:focus {
+    border: 1px solid #0099FF;
+}
+.content_right_newcourse_create_con_li_btncon {
+    width: 170px;
+    height: 40px;
+    float: left;
+}
+.content_right_newcourse_create_con_li_btncon_btn {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    float: left;
+    cursor: pointer;
+    background-size: 24px;
+}
+.content_right_newcourse_create_con_li_li_con {
+    width: 100%;
+    height: auto;
+    margin-top: 15px;
+}
+.content_right_newcourse_create_con_li_tit_li_name_con {
+    width: 100%;
+    height: 25px;
+}
+.content_right_newcourse_create_con_li_tit_li_name_con_name {
+    width: 300px;
+    height: 25px;
+    font-size: 12px;
+    line-height: 25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    float: left;
+    padding-left: 34px;
+    background: url(image/typeIcon.png) no-repeat 0 center;
+}
+.content_right_newcourse_create_con_li_tit_li_name_con_status {
+    width: 48px;
+    height: 16px;
+    float: right;
+    position: relative;
+    top: 5px;
+}
+.content_right_newcourse_create_con_li_tit_li_name_con_status img {
+    width: 16px;
+    height: 16px;
+    margin-left: 20px;
+}
+
+/*进度条*/
+.content_right_newcourse_create_con_li_li_con_jdbarcon {
+    width: 300px;
+    height: 12px;
+    margin-top: 6px;
+}
+.content_right_newcourse_create_con_li_li_con_jdbarcon_bar_a {
+    width: 240px;
+    height: 7px;
+    float: left;
+    margin-top: 2px;
+    background: #DCDCDC;
+}
+.content_right_newcourse_create_con_li_li_con_jdbarcon_bar_b {
+    /*width:240px;*/
+    width: 80%;
+    height: 7px;
+    background: #AAAAAA;
+}
+.content_right_newcourse_create_con_li_li_con_jdbarcon_bar_c {
+    /*width:240px;*/
+    width: 60%;
+    height: 7px;
+    background: #209EEA;
+}
+.content_right_newcourse_create_con_li_li_con_jdnum {
+    width: 60px;
+    height: 12px;
+    color: rgb(102, 102, 102);
+    text-indent: 30px;
+    float: right;
+    font-size: 12px;
+    position: relative;
+    top: -3px;
+}
+.content_right_newcourse_create_con_node_li_addbtn {
+    width: 300px;
+    height: 40px;
+    margin:35px 0 0 240px;
+    font-size: 14px;
+    color: rgb(32, 158, 234);
+    line-height: 28px;
+    text-align: center;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+.content_right_newcourse_create_con_node_li_addbtn_l {
+    width: 300px;
+    height: 40px;
+    float: left;
+    font-size: 16px;
+    line-height: 40px;
+    color: #FFFFFF;
+    background-color: #F39800;
+    text-align: center;
+    margin: 0 auto;
+    cursor: pointer;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+.content_right_newcourse_create_con_node_li_addbtn_l:hover{
+	background-color: orange;
+}
+.upload {
+    background: url("image/upload1.png") center no-repeat;
+    background-size: 24px;
+}
+.upload:hover{
+	background-size: 26px;
+}
+.del {
+    background: url("image/del.png") center no-repeat;
+    background-size: 24px;
+}
+.del:hover{
+	background-size: 26px;
+}
+
+.hide {
+    display: none;
+}
